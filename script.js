@@ -133,3 +133,18 @@ function ordenarDecrescente() {
         }
     } 
 }
+
+function pesoIdeal() {
+    let sexo = prompt('Qual o seu Sexo: ').toUpperCase();
+    let altura = Number(prompt('Qual a sua Altura?'));
+    
+
+    if (sexo === 'M') {
+        let pesoIdeialH = (77.7 * altura) - 58;
+        alert(`O seu peso ideal é: ${pesoIdeialH} kg.`);
+    } else {
+        let pesoIdeialM = (62.1 * altura) - 44.7;
+        alert(`O seu peso ideal é: ${pesoIdeialM} kg.`);
+    }
+
+}
