@@ -135,8 +135,8 @@ function ordenarDecrescente() {
 }
 
 function pesoIdeal() {
-    let sexo = prompt('Qual o seu Sexo: ').toUpperCase();
-    let altura = Number(prompt('Qual a sua Altura?'));
+    let sexo = prompt('Qual o seu Sexo "M" para masculino e "F" para feminino: ').toUpperCase();
+    let altura = Number(prompt('Qual a sua Altura (Ex.: 1.75)?'));
     
 
     if (sexo === 'M') {
@@ -150,8 +150,8 @@ function pesoIdeal() {
 }
 
 function descobrirImc () {
-    let peso = Number(prompt('Digite seu Peso: '));
-    let altura = Number(prompt('Digite sua Altura: '))
+    let peso = Number(prompt('Digite seu Peso (Ex.: 84.9): '));
+    let altura = Number(prompt('Digite sua Altura (Ex.: 1.75): '))
 
     let imc = peso / (altura ** 2);
 
