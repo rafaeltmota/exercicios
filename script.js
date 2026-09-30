@@ -188,22 +188,48 @@ function verDesconto () {
 }
 
 function verificarMedia() {
+    let aluno = Number(prompt('Qual a ID do aluno: '))
     let nota1 = Number(prompt('Digite a Nota 1: '));
     let nota2 = Number(prompt('Digite a Nota 2: '));
     let nota3 = Number(prompt('Digite a Nota 3: '));
     let mediaexercicios = Number(prompt('Digite a Média dos Exercícios : '));
 
-    let mediaaproveitamento = (nota1 + nota2 * 2 + nota3 * 3 + mediaexercicios) / 7;
+    let mediaaproveitamento = ((nota1 + nota2 * 2 + nota3 * 3 + mediaexercicios) / 7) * 10;
 
-    if (mediaaproveitamento >= 9.0) {
-        alert(`Sua Média de Aproveitamento foi: ${mediaaproveitamento}, seu conceito é A`);
-    } else if (mediaaproveitamento >= 7.5 && mediaaproveitamento < 9.0) {
-        alert(`Sua Média de Aproveitamento foi: ${mediaaproveitamento}, seu conceito é B`);
-    } else if (mediaaproveitamento >= 6.0 && mediaaproveitamento < 7.5) {
-        alert(`Sua Média de Aproveitamento foi: ${mediaaproveitamento}, seu conceito é C`);
-    } else if (mediaaproveitamento >= 4.0 && mediaaproveitamento < 6.0) {
-        alert(`Sua Média de Aproveitamento foi: ${mediaaproveitamento}, seu conceito é D`);
-    } else  {
-        alert(`Sua Média de Aproveitamento foi: ${mediaaproveitamento}, seu conceito é E`);
-    } 
+    let conceito;
+
+    switch (true) {
+        case mediaaproveitamento >= 90:
+            conceito = "A";
+            break;
+        case mediaaproveitamento >= 75 && mediaaproveitamento < 90:
+            conceito = "B";
+            break
+        case mediaaproveitamento >= 60 && mediaaproveitamento < 75:
+            conceito = "C";
+            break
+        case mediaaproveitamento >= 40 && mediaaproveitamento < 60:
+            conceito = "D";
+            break
+        case mediaaproveitamento < 40:
+            conceito = "E";
+            break
+        default:
+            alert("Imppossível calcular a média de aproveitamento do aluno!");
+            return
+    }
+
+    let Resultado = ["A", "B", "C"].includes(conceito) ? "Aprovado" : "Reprovado";
+    alert(`
+            ID do Aluno: ${aluno},
+            Notas: {
+                1ª Verificação: ${nota1},
+                2ª Verificação: ${nota2},
+                3ª Verificação: ${nota2},
+            }
+            Média dos Exercícios: ${mediaexercicios},
+            Média de Aproveitamento: ${mediaaproveitamento},
+            Conceito: ${conceito} => ${Resultado}
+        `)
 }
+
